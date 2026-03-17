@@ -77,7 +77,7 @@
             font-weight: 450;
             font-size: 14px;
             line-height: 1.6;
-            color: #52525b;
+            color: #35353b;
             background-color: #ffffff;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -101,57 +101,19 @@
         h1 {
             font-size: 20px;
             font-weight: 550;
-            color: #18181b;
+            color: #000000;
             letter-spacing: -0.025em;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.25rem;
             line-height: 1.2;
         }
         
         .content {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem;
         }
         
 
-        
-        .profile-image-container {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 2rem auto;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid #e4e4e7;
-        }
-        
-        .profile-image-main {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 80%;
-            transition: opacity 0.3s ease;
-        }
-        
-        .profile-image-hover {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 20%;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .profile-image-container:hover .profile-image-main {
-            opacity: 0;
-        }
-        
-        .profile-image-container:hover .profile-image-hover {
-            opacity: 1;
-        }
         
         p {
             margin: 0;
@@ -166,6 +128,46 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e4e4e7;
+        }
+
+        .tab {
+            padding: 0.5rem 0;
+            font-size: 14px;
+            font-weight: 450;
+            color: #71717a;
+            background: none;
+            border: none;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+        }
+
+        .tab:hover {
+            color: #18181b;
+        }
+
+        .tab.active {
+            color: #18181b;
+            border-bottom-color: #18181b;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .tab-panel p + p {
+            margin-top: 1em;
+        }
     </style>
 </head>
 <body>
@@ -173,22 +175,37 @@
         <main>
             <section>
                 <div class="content">
-                    <div class="profile-image-container">
-                        <img src="media/42DB29B1-051C-4B47-B072-FE9B8CC366C8_4_5005_c.jpeg" alt="Aryaman Kukal - Data Science and Computer Science Student at UC Berkeley" class="profile-image-main">
-                        <img src="media/3726D0BB-0B12-4F45-A1E6-B18B23A09ADB_1_105_c.jpeg" alt="Aryaman Kukal - Data Science and Computer Science Student at UC Berkeley" class="profile-image-hover">
-                    </div>
                     <h1>Aryaman Kukal</h1>
-                    <p>Studying Data Science, Computer Science, AI/ML @ UC Berkeley.</p>
-                    <p>I'm currently at <b>DivcoWest</b> working on AI-driven automation and internal tools to streamline People Operations and improve employee experience.</p>
-                    <p>I'm an incoming SWE intern at <b>Adobe</b> (Summer 2026) and <b>SpaceX</b> (Fall 2026)!</p>
-                    <p>I was previously at <b>Medoh Health</b>, working on high‑performance search and personalization systems to digitize and scale the doctor-patient experience.</p>
-                    <p>I'm interested in applied NLP, LLM infrastructure, and clever, intuitive interfaces.</p>
-                    <p>You can find my previous experience on <a href="https://www.linkedin.com/in/aryaman-kukal-2192581a9/">Linkedin</a> and my work on <a href="https://github.com/aryamankukal">Github</a>.</p>
-                    <p>Reach out at aryamankukal [at] berkeley [dot] edu.</p>
-                    <p>When I'm not building, you'll find me with my dog Astro, trying an ethnic food spot, writing, doing karaoke, at a concert, in the gym, or on a late‑night drive.</p>
+                    <div class="tabs">
+                        <button class="tab active" data-tab="about">About Me</button>
+                        <button class="tab" data-tab="experience">Experience</button>
+                    </div>
+                    <div id="about" class="tab-panel active">
+                        <p>I'm studying CS, Data Science, Applied Math at UC Berkeley interested in applied NLP, LLM infrastructure, and clever, intuitive interfaces.</p>
+
+                        <p>Reach out at aryamankukal [at] berkeley [dot] edu.</p>
+
+                        <p>When I'm not building, you'll find me with my dog Astro, trying an ethnic food spot, writing, doing karaoke, at a concert, in the gym, or on a late‑night drive.</p>
+                    </div>
+                    <div id="experience" class="tab-panel">
+                        <p>I'm currently at <strong>DivcoWest</strong>, working on AI-driven automation and internal tools to streamline People Operations.</p>
+                        <p>I'll be joining <strong>Adobe</strong> as a SWE Intern (Summer 2026) and <strong>SpaceX</strong> as a SWE Intern (Fall 2026) working on AI agents and RAG systems.</p>
+                        <p>I was previously at <strong>Medoh Health</strong>, working on high‑performance search and personalization systems to digitize and scale the doctor–patient experience.</p>
+                        <p>You can find more about my experience on <a href="https://www.linkedin.com/in/aryaman-kukal-2192581a9/" style="text-decoration: underline;">Linkedin</a> and my work on <a href="https://github.com/aryamankukal" style="text-decoration: underline;">Github</a> and <a href="https://devpost.com/aryamankukal?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" style="text-decoration: underline;">Devpost</a>.</p>
+                    </div>
                 </div>
             </section>
         </main>
     </div>
+    <script>
+        document.querySelectorAll('.tabs button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html> 
