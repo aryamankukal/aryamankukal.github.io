@@ -129,45 +129,6 @@
             text-decoration: underline;
         }
 
-        .tabs {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #e4e4e7;
-        }
-
-        .tab {
-            padding: 0.5rem 0;
-            font-size: 14px;
-            font-weight: 450;
-            color: #71717a;
-            background: none;
-            border: none;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            margin-bottom: -1px;
-        }
-
-        .tab:hover {
-            color: #18181b;
-        }
-
-        .tab.active {
-            color: #18181b;
-            border-bottom-color: #18181b;
-        }
-
-        .tab-panel {
-            display: none;
-        }
-
-        .tab-panel.active {
-            display: block;
-        }
-
-        .tab-panel p + p {
-            margin-top: 1em;
-        }
     </style>
 </head>
 <body>
@@ -176,36 +137,14 @@
             <section>
                 <div class="content">
                     <h1>Aryaman Kukal</h1>
-                    <div class="tabs">
-                        <button class="tab active" data-tab="about">About Me</button>
-                        <button class="tab" data-tab="experience">Experience</button>
-                    </div>
-                    <div id="about" class="tab-panel active">
-                        <p>I'm studying CS, Data Science, Applied Math at UC Berkeley interested in applied NLP, LLM infrastructure, and clever, intuitive interfaces.</p>
-
-                        <p>Reach out at aryamankukal [at] berkeley [dot] edu.</p>
-
-                        <p>When I'm not building, you'll find me with my dog Astro, trying an ethnic food spot, writing, doing karaoke, at a concert, in the gym, or on a late‑night drive.</p>
-                    </div>
-                    <div id="experience" class="tab-panel">
-                        <p>I'm currently at <strong>DivcoWest</strong>, working on AI-driven automation and internal tools to streamline People Operations.</p>
-                        <p>I'll be joining <strong>Adobe</strong> this summer and <strong>SpaceX</strong> this fall working on AI agents and RAG‑based systems.</p>
-                        <p>I was previously at <strong>Medoh Health</strong>, working on high‑performance search and personalization systems to digitize and scale the doctor–patient experience.</p>
-                        <p>You can find more about my experience on <a href="https://www.linkedin.com/in/aryaman-kukal-2192581a9/" style="text-decoration: underline;">Linkedin</a> and my work on <a href="https://github.com/aryamankukal" style="text-decoration: underline;">GitHub</a> and <a href="https://devpost.com/aryamankukal?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" style="text-decoration: underline;">Devpost</a>.</p>
-                    </div>
+                    <p>Studying Data Science and AI/ML at UC Berkeley interested in applied AI, search, and clever, intuitive interfaces.</p>
+                    <p>I'm currently at <strong>SpaceX</strong>, working on AI agents and RAG-based systems for vehicle launch readiness.</p>
+                    <p>Was previously at <strong>Adobe</strong>, working on email send-time optimization and <strong>Medoh Health</strong>, working on semantic search and personalization systems.</p>
+                    <p>You can find more about my experience on <a href="https://www.linkedin.com/in/aryaman-kukal-2192581a9/" style="text-decoration: underline;">Linkedin</a> and my work on <a href="https://github.com/aryamankukal" style="text-decoration: underline;">GitHub</a>.</p>
+                    <p>Reach out at aryamankukal [at] berkeley [dot] edu.</p>
                 </div>
             </section>
         </main>
     </div>
-    <script>
-        document.querySelectorAll('.tabs button').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById(btn.dataset.tab).classList.add('active');
-            });
-        });
-    </script>
 </body>
 </html> 
