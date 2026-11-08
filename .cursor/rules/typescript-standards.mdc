@@ -1,0 +1,51 @@
+---
+description: TypeScript coding standards for this project
+globs: **/*.ts,**/*.tsx
+alwaysApply: false
+---
+
+# TypeScript Standards
+
+## Prefer Explicit Types for Public APIs
+Use explicit return types and parameter types for exported functions and public methods.
+
+```typescript
+// ❌ BAD - inferred, unclear contract
+export function parseUser(input) {
+  return JSON.parse(input);
+}
+
+// ✅ GOOD - explicit types
+export function parseUser(input: string): User {
+  return JSON.parse(input) as User;
+}
+```
+
+## Avoid `any`
+Use `unknown` when the type is truly unknown, or narrow with type guards.
+
+```typescript
+// ❌ BAD
+function handle(data: any) {
+  return data.value;
+}
+
+// ✅ GOOD
+function handle(data: unknown): string {
+  if (typeof data === 'object' && data !== null && 'value' in data) {
+    return String((data as { value: unknown }).value);
+  }
+  throw new Error('Invalid data');
+}
+```
+
+## Use `const` Assertions for Literals
+When you need a value to be treated as a literal type:
+
+```typescript
+// ❌ BAD
+const status = "pending";
+
+// ✅ GOOD - when you need the literal type
+const status = "pending" as const;
+```
